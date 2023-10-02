@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: URLRegistry
+  cache:
+    type: redis
+  data:
+    mongodb:
+      username: mongo
+      password: pass
+      authentication-database: admin
+      port: 27017
+      database: full_url_database
+    redis:
+      host: localhost
+      port: 6379
