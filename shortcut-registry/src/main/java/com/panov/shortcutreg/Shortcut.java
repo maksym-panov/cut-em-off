@@ -1,4 +1,4 @@
-package com.panov.urireg;
+package com.panov.shortcutreg;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,14 +6,12 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
-
 @Getter
 @Setter
 @AllArgsConstructor
-@Document(collection = "registered_url_collection")
-public class FullLinkRecord implements Serializable {
+@Document(collection = "shortcut_collection")
+public class Shortcut {
     @Id
-    private String fullLink;
     private String shortcut;
+    private String fullLink;
 }

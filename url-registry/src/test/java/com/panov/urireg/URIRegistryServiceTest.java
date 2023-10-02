@@ -5,10 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-public record URIRegistryServiceTest(@Autowired URIRegistryService underTest) {
+public record URIRegistryServiceTest(
+        @Autowired URIRegistryService underTest
+) {
     @Test
     @DisplayName("Should retrieve empty optional if provided link was not added previously")
     void shouldReturnEmptyOptionalIfThereIsNoSuchLink() {

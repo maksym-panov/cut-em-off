@@ -1,8 +1,8 @@
-package com.panov.urireg;
+package com.panov.shortcutreg;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface URIRegistryRepository
-        extends MongoRepository<FullLinkRecord, String> {}
+public interface ShortcutRegistryRepository
+        extends MongoRepository<Shortcut, String> {}

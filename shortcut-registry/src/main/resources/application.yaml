@@ -1,17 +1,17 @@
 spring:
   application:
-    name: URLRegistry
+    name: ShortcutRegistry
   cache:
     type: redis
     redis:
-      time-to-live: 5
+      time-to-live: 10
   data:
     mongodb:
       username: mongo
       password: pass
       authentication-database: admin
       port: 27017
-      database: full_url_database
+      database: shortcut_database
     redis:
       host: localhost
       port: 6379

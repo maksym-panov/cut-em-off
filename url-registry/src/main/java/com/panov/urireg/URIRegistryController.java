@@ -12,13 +12,13 @@ public class URIRegistryController {
 
     @Cacheable(value = "CachedURLRecord", key = "#fullLink")
     @GetMapping
-    public FullLinkRecord getExistingShortcut(@RequestBody String fullLink) {
+    public FullLinkRecord getExistingURLMapping(@RequestBody String fullLink) {
         var opt = uriRegistryService.findExistingURIRecord(fullLink);
         return opt.orElse(null);
     }
 
     @PostMapping
-    public void registerShortcut(@RequestBody FullLinkRecord fullLinkRecord) {
+    public void registerURLMapping(@RequestBody FullLinkRecord fullLinkRecord) {
         uriRegistryService.registerNewURIRecord(fullLinkRecord);
     }
 }

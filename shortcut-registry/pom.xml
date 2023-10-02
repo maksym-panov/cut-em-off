@@ -7,10 +7,10 @@
         <version>0.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>url-registry</artifactId>
+    <artifactId>shortcut-registry</artifactId>
     <packaging>jar</packaging>
 
-    <name>url-registry</name>
+    <name>shortcut-registry</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
