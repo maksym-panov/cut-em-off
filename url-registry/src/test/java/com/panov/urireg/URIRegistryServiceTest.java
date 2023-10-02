@@ -7,9 +7,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public record URIRegistryServiceTest(
-        @Autowired URIRegistryService underTest
-) {
+public class URIRegistryServiceTest {
+    @Autowired
+    URIRegistryRepository uriRegistryRepository;
+    URIRegistryService underTest;
+
+    @BeforeEach
+    void setUp() {
+        underTest = new URIRegistryService(uriRegistryRepository);
+    }
+
     @Test
     @DisplayName("Should retrieve empty optional if provided link was not added previously")
     void shouldReturnEmptyOptionalIfThereIsNoSuchLink() {
@@ -22,7 +29,7 @@ public record URIRegistryServiceTest(
     }
 
     @Test
-    @Order(1)
+    @Order(2)
     @DisplayName("Should return optional of FullLinkRecord if provided link was met before")
     void shouldReturnNotEmptyOptionalIfThereIsSuchLink() {
         // given
@@ -49,16 +56,18 @@ public record URIRegistryServiceTest(
     }
 
     @Test
-    @Order(2)
+    @Order(1)
     @DisplayName("Should not change mapping for existing link")
     void shouldNotChangeMappingForExistingLink() {
         // given
-        String full = "https://www.test1.com";
-        String currentShortcut = "ags24";
-        String newShortcut = "2bbb2";
-        var fullLinkRecord = new FullLinkRecord(full, newShortcut);
+        String full = "https://www.test4.com";
+        String currentShortcut = "alf44";
+        var fullLinkRecordCurrent = new FullLinkRecord(full, currentShortcut);
+        String newShortcut = "2bbb3";
+        var fullLinkRecordNew = new FullLinkRecord(full, newShortcut);
         // when
-        underTest.registerNewURIRecord(fullLinkRecord);
+        underTest.registerNewURIRecord(fullLinkRecordCurrent);
+        underTest.registerNewURIRecord(fullLinkRecordNew);
         var opt = underTest.findExistingURIRecord(full);
         // then
         assertThat(opt).isNotEmpty();
