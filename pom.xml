@@ -5,9 +5,12 @@
   <groupId>com.panov</groupId>
   <artifactId>cutemoff</artifactId>
   <version>0.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>cutemoff-services</name>
+  <modules>
+    <module>shortener</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

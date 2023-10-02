@@ -1,0 +1,5 @@
+application:
+  shortener: 'localhost:8080'
+
+server:
+  port: 8080
