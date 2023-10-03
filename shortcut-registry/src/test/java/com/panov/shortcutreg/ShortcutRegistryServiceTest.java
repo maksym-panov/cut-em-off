@@ -24,7 +24,7 @@ public record ShortcutRegistryServiceTest(
     }
 
     @Test
-    @Order(1)
+    @Order(2)
     @DisplayName("Should return optional with corresponding object if provided shortcut exists")
     void shouldReturnNotEmptyOptionalIfShortcutExists() {
         // given
@@ -51,7 +51,7 @@ public record ShortcutRegistryServiceTest(
     }
 
     @Test
-    @Order(2)
+    @Order(1)
     @DisplayName("Should not modify mapping of existing shortcut")
     void shouldNotModifyMappingOfExistingShortcut() {
         // given

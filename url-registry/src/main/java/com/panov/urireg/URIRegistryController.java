@@ -5,15 +5,14 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/url-registry")
 @RequiredArgsConstructor
 public class URIRegistryController {
     private final URIRegistryService uriRegistryService;
 
-    @Cacheable(value = "CachedURLRecord", key = "#fullLink")
-    @GetMapping
-    public FullLinkRecord getExistingURLMapping(@RequestBody String fullLink) {
-        var opt = uriRegistryService.findExistingURIRecord(fullLink);
+    @Cacheable(value = "CachedURLRecord", key = "#request.url")
+    @PostMapping("/existing")
+    public FullLinkRecord getExistingURLMapping(@RequestBody LookupRequest request) {
+        var opt = uriRegistryService.findExistingURIRecord(request.getUrl());
         return opt.orElse(null);
     }
 

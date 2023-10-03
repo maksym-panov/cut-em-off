@@ -5,7 +5,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/shortcut-registry")
 @RequiredArgsConstructor
 public class ShortcutRegistryController {
     private final ShortcutRegistryService shortcutRegistryService;

@@ -25,7 +25,7 @@ public class ShortcutRegistryServiceMockingTest {
     }
 
     @Test
-    @Order(1)
+    @Order(2)
     @DisplayName("Should save provided shortcut to URL mapping to the persistence")
     void shouldSaveNewShortcutMappingToThePersistence() {
         // given
@@ -46,7 +46,7 @@ public class ShortcutRegistryServiceMockingTest {
     }
 
     @Test
-    @Order(2)
+    @Order(1)
     @DisplayName("Should retrieve optional with corresponding full URL if provided shortcut exists")
     void shouldRetrieveOptionalWithFullUrlForShortcut() {
         // given
