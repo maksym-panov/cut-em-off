@@ -81,7 +81,7 @@ start /b java -jar shortcut-resolver\target\shortcut-resolver-0.0.0-SNAPSHOT.jar
 
 > Note: sometimes discovery server cannot find other services quickly
 > so please do not be afraid if you get error 500, Eureka will find 
-> services very soon and you will see full power of "Cut'em'all!" :)
+> services very soon and you will see full power of "Cut'em'off!" :)
 
 To start using the service, you should just make a `POST` request to the URL `http://localhost:8082/api/v1/shortener`
 with `application/json` request body that follows the following structure:
