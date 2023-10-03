@@ -1,6 +1,7 @@
 package com.panov.shortener;
 
 import com.panov.shortener.dto.FullLinkRecord;
+import com.panov.shortener.dto.FullURLResponse;
 import com.panov.shortener.dto.LookupRequest;
 import com.panov.shortener.dto.Shortcut;
 import com.panov.shortener.utils.Encoder;
@@ -39,6 +40,19 @@ public record ShortcutService(
             log.error("Error during fetching information about registered URLs");
             e.printStackTrace();
             return null;
+        }
+
+        try {
+            log.info("Checking if URL '{}' is already a shortcut for some other URL", url);
+            String possibleShortcut = url.substring(url.lastIndexOf('/'));
+            FullURLResponse fullURLResponse =
+                    shortcutRegistryFeign.getLinkForShortcut(possibleShortcut);
+            if (fullURLResponse != null) {
+                log.info("URL '{}' is really a shortcut for '{}'", url, fullURLResponse.fullLink());
+                return fullURLResponse.fullLink();
+            }
+        } catch (Exception e) {
+            log.error("Error during checking if URL '{}' is already a shortcut", url);
         }
 
         var generatedShortcut = generateShortcut();
