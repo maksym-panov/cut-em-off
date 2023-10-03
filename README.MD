@@ -54,10 +54,10 @@ start /b java -jar discovery-server\target\discovery-server-0.0.0-SNAPSHOT.jar
 
 On Unix
 ```shell
-java -jar shortcut-registry\target\shortcut-registry-0.0.0-SNAPSHOT.jar &\
-java -jar url-registry\target\url-registry-0.0.0-SNAPSHOT.jar &\
-java -jar shortener\target\shortener-0.0.0-SNAPSHOT.jar &\
-java -jar shortcut-resolver\target\shortcut-resolver-0.0.0-SNAPSHOT.jar
+java -jar shortcut-registry/target/shortcut-registry-0.0.0-SNAPSHOT.jar &\
+java -jar url-registry/target/url-registry-0.0.0-SNAPSHOT.jar &\
+java -jar shortener/target/shortener-0.0.0-SNAPSHOT.jar &\
+java -jar shortcut-resolver/target/shortcut-resolver-0.0.0-SNAPSHOT.jar
 ```
 
 On Windows
