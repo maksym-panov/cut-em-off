@@ -5,7 +5,7 @@ import com.panov.urireg.LookupRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("URLRegistry")
+@FeignClient("URLREGISTRY")
 public interface URLRegistryFeign {
     @PostMapping("/existing")
     FullLinkRecord getExistingURLMapping(@RequestBody LookupRequest request);

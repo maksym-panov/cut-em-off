@@ -1,5 +1,5 @@
 shortener:
-  domain: localhost:8080
+  domain: localhost:9999
 
 server:
   port: 8082

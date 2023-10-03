@@ -19,6 +19,7 @@
     <module>discovery-server</module>
     <module>url-registry</module>
     <module>shortcut-registry</module>
+    <module>shortcut-resolver</module>
   </modules>
 
   <properties>
