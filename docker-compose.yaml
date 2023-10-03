@@ -4,12 +4,15 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+
+
   mongo:
     container_name: MongoDatabase
     image: mongo
     environment:
       - MONGO_INITDB_ROOT_USERNAME=mongo
       - MONGO_INITDB_ROOT_PASSWORD=pass
-    restart: on-failure
     ports:
       - "27017:27017"

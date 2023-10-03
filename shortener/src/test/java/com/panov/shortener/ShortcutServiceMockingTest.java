@@ -1,9 +1,9 @@
 package com.panov.shortener;
 
-import com.panov.shortcutreg.Shortcut;
+import com.panov.shortener.dto.FullLinkRecord;
+import com.panov.shortener.dto.LookupRequest;
+import com.panov.shortener.dto.Shortcut;
 import com.panov.shortener.utils.Encoder;
-import com.panov.urireg.FullLinkRecord;
-import com.panov.urireg.LookupRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -62,7 +62,7 @@ public class ShortcutServiceMockingTest {
         var lookupRequestArgumentCaptor =
                 ArgumentCaptor.forClass(LookupRequest.class);
         verify(urlRegistryFeign).getExistingURLMapping(lookupRequestArgumentCaptor.capture());
-        assertThat(lookupRequestArgumentCaptor.getValue().getUrl()).isEqualTo(url);
+        assertThat(lookupRequestArgumentCaptor.getValue().url()).isEqualTo(url);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class ShortcutServiceMockingTest {
                 ArgumentCaptor.forClass(FullLinkRecord.class);
         verify(urlRegistryFeign).registerURLMapping(fullLinkRecordArgumentCaptor.capture());
         // then
-        assertThat(fullLinkRecordArgumentCaptor.getValue().getFullLink()).isEqualTo(url);
+        assertThat(fullLinkRecordArgumentCaptor.getValue().fullLink()).isEqualTo(url);
     }
 
     @Test
@@ -100,6 +100,6 @@ public class ShortcutServiceMockingTest {
         var shortcutArgumentCaptor = ArgumentCaptor.forClass(Shortcut.class);
         verify(shortcutRegistryFeign).registerNewShortcut(shortcutArgumentCaptor.capture());
         // then
-        assertThat(shortcutArgumentCaptor.getValue().getFullLink()).isEqualTo(url);
+        assertThat(shortcutArgumentCaptor.getValue().fullLink()).isEqualTo(url);
     }
 }

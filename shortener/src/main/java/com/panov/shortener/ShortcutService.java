@@ -1,9 +1,9 @@
 package com.panov.shortener;
 
-import com.panov.shortcutreg.Shortcut;
+import com.panov.shortener.dto.FullLinkRecord;
+import com.panov.shortener.dto.LookupRequest;
+import com.panov.shortener.dto.Shortcut;
 import com.panov.shortener.utils.Encoder;
-import com.panov.urireg.FullLinkRecord;
-import com.panov.urireg.LookupRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public record ShortcutService(
             FullLinkRecord fromPersistence = urlRegistryFeign
                     .getExistingURLMapping(request);
             if (fromPersistence != null) {
-                String shortcut = fromPersistence.getShortcut();
+                String shortcut = fromPersistence.shortcut();
                 log.info("URL '{}' already has a shortcut '{}'", url, shortcut);
                 return String.format("%s/%s", domain, shortcut);
             }

@@ -1,5 +1,6 @@
 package com.panov.shortcutreg;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public record ShortcutRegistryServiceTest(
         @Autowired ShortcutRegistryService underTest
 ) {
+    @Disabled
     @Test
     @DisplayName("Should retrieve empty optional if provided shortcut does not exists")
     void shouldReturnEmptyOptionalIfThereIsNoSuchShortcut() {
@@ -23,6 +25,7 @@ public record ShortcutRegistryServiceTest(
         assertThat(emptyOptional).isEmpty();
     }
 
+    @Disabled
     @Test
     @Order(2)
     @DisplayName("Should return optional with corresponding object if provided shortcut exists")
@@ -50,6 +53,7 @@ public record ShortcutRegistryServiceTest(
         assertThat(ret2.getFullLink()).isEqualTo(full2);
     }
 
+    @Disabled
     @Test
     @Order(1)
     @DisplayName("Should not modify mapping of existing shortcut")

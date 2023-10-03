@@ -1,6 +1,6 @@
 spring:
   application:
-    name: URLRegistry
+    name: url-registry
   cache:
     type: redis
     redis:

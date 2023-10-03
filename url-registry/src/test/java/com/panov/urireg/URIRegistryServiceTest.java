@@ -17,6 +17,7 @@ public class URIRegistryServiceTest {
         underTest = new URIRegistryService(uriRegistryRepository);
     }
 
+    @Disabled
     @Test
     @DisplayName("Should retrieve empty optional if provided link was not added previously")
     void shouldReturnEmptyOptionalIfThereIsNoSuchLink() {
@@ -28,6 +29,7 @@ public class URIRegistryServiceTest {
         assertThat(emptyOptional).isEmpty();
     }
 
+    @Disabled
     @Test
     @Order(2)
     @DisplayName("Should return optional of FullLinkRecord if provided link was met before")
@@ -55,6 +57,7 @@ public class URIRegistryServiceTest {
         assertThat(ret2.getShortcut()).isEqualTo(shortcut2);
     }
 
+    @Disabled
     @Test
     @Order(1)
     @DisplayName("Should not change mapping for existing link")

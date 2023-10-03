@@ -1,11 +1,11 @@
 package com.panov.shortener;
 
-import com.panov.urireg.FullLinkRecord;
-import com.panov.urireg.LookupRequest;
+import com.panov.shortener.dto.FullLinkRecord;
+import com.panov.shortener.dto.LookupRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("URLREGISTRY")
+@FeignClient("url-registry")
 public interface URLRegistryFeign {
     @PostMapping("/existing")
     FullLinkRecord getExistingURLMapping(@RequestBody LookupRequest request);

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ShortcutRegistry
+    name: shortcut-registry
   cache:
     type: redis
     redis:

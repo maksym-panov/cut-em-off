@@ -1,4 +1,4 @@
-package com.panov.shortener;
+package com.panov.shortener.dto;
 
 public record ShortcutResponse(String shortcut) {
 }

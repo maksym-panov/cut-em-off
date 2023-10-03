@@ -1,5 +1,7 @@
 package com.panov.shortener;
 
+import com.panov.shortener.dto.ShortcutRequest;
+import com.panov.shortener.dto.ShortcutResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
